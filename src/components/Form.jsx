@@ -17,16 +17,16 @@ function Form(props) {
           <h2>Build Your Own Pizza</h2>
         </div>
         <div>
-          <label>
-            Name:&nbsp;
-            <input
-              type="text"
-              name="name"
-              value={values.name}
-              onChange={onInputChange}
-              placeholder="Name"
-            />
-          </label>
+          <label>Name:&nbsp;</label>
+          <input
+            id="name"
+            type="text"
+            name="name"
+            data-cy="input-name"
+            value={values.name}
+            onChange={onInputChange}
+            placeholder="Name"
+          />
           <div>
             <div>{errors.name}</div>
           </div>
@@ -101,7 +101,9 @@ function Form(props) {
           <br />
           <br />
           <div>
-            <button disabled={disabled}>Add to Order</button>
+            <button className="submit" disabled={disabled}>
+              Add to Order
+            </button>
           </div>
         </div>
         <br />
