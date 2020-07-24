@@ -8,6 +8,7 @@ const formSchema = Yup.object().shape({
     ["Small", "Medium", "Large"],
     "Please select a size."
   ),
+  instructions: Yup.string(),
 });
 
 export default formSchema;

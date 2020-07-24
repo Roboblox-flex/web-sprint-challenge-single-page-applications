@@ -7,7 +7,7 @@ function Form(props) {
     onInputChange,
     onCheckboxChange,
     onSubmit,
-    // disabled,
+    disabled,
     errors,
   } = props;
 
@@ -28,6 +28,9 @@ function Form(props) {
               placeholder="Name"
             />
           </label>
+          <div>
+            <div>{errors.name}</div>
+          </div>
           <br />
           <br />
           <label>
@@ -75,7 +78,7 @@ function Form(props) {
             </label>
             <br />
             <label>
-              Spinach
+              Mushrooms
               <input
                 name="mushrooms"
                 type="checkbox"
@@ -99,15 +102,11 @@ function Form(props) {
           <br />
           <br />
           <div>
-            <button>Add to Order</button>
+            <button disabled={disabled}>Add to Order</button>
           </div>
         </div>
         <br />
         <br />
-        <div className="errors">
-          <div>{errors.name}</div>
-          <div>{errors.size}</div>
-        </div>
       </form>
     </div>
   );

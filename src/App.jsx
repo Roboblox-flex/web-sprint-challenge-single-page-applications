@@ -23,12 +23,12 @@ const initialFormErrors = {
   name: "",
   size: "",
 };
-// const initialDisabled = true;
+const initialDisabled = true;
 const App = () => {
   const [orders, setOrders] = useState([]);
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
-  // const [disabled, setDisabled] = useState(initialDisabled);
+  const [disabled, setDisabled] = useState(initialDisabled);
 
   const onSubmit = (evt) => {
     evt.preventDefault();
@@ -82,6 +82,11 @@ const App = () => {
       },
     });
   };
+  useEffect(() => {
+    formSchema.isValid(formValues).then((valid) => {
+      setDisabled(!valid);
+    });
+  }, [formValues]);
   return (
     <div className="App">
       <nav>
@@ -106,7 +111,7 @@ const App = () => {
             onInputChange={onInputChange}
             onCheckboxChange={onCheckboxChange}
             onSubmit={onSubmit}
-            // disabled={disabled}
+            disabled={disabled}
             errors={formErrors}
           />
         </Route>
